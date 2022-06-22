@@ -19,6 +19,7 @@ We have created a very simple Connect 4 game using some of our favorite [front-e
 - Increase unit test coverage
 - Add end-to-end tests
 - Make it look nice
+- Responsive styles
 - Performance optimization
 
 ## Technology Choices
