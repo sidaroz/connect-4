@@ -35,25 +35,8 @@ const render = () => {
 test("should win with 4 in a row vertically", () => {
   const { play, assertGame } = render();
 
-  play(0);
-  assertGame(2, false, [[1], [], [], [], [], [], []]);
+  [0, 1, 0, 1, 0, 1, 0].forEach(play);
 
-  play(1);
-  assertGame(1, false, [[1], [2], [], [], [], [], []]);
-
-  play(0);
-  assertGame(2, false, [[1, 1], [2], [], [], [], [], []]);
-
-  play(1);
-  assertGame(1, false, [[1, 1], [2, 2], [], [], [], [], []]);
-
-  play(0);
-  assertGame(2, false, [[1, 1, 1], [2, 2], [], [], [], [], []]);
-
-  play(1);
-  assertGame(1, false, [[1, 1, 1], [2, 2, 2], [], [], [], [], []]);
-
-  play(0);
   // Player 1 won the game!
   assertGame(1, true, [[1, 1, 1, 1], [2, 2, 2], [], [], [], [], []]);
 
@@ -65,31 +48,8 @@ test("should win with 4 in a row vertically", () => {
 test("should win with 4 in a row horizontally", () => {
   const { play, assertGame } = render();
 
-  play(0);
-  assertGame(2, false, [[1], [], [], [], [], [], []]);
+  [0, 6, 1, 6, 3, 6, 4, 5, 2].forEach(play);
 
-  play(6);
-  assertGame(1, false, [[1], [], [], [], [], [], [2]]);
-
-  play(1);
-  assertGame(2, false, [[1], [1], [], [], [], [], [2]]);
-
-  play(6);
-  assertGame(1, false, [[1], [1], [], [], [], [], [2, 2]]);
-
-  play(3);
-  assertGame(2, false, [[1], [1], [], [1], [], [], [2, 2]]);
-
-  play(6);
-  assertGame(1, false, [[1], [1], [], [1], [], [], [2, 2, 2]]);
-
-  play(4);
-  assertGame(2, false, [[1], [1], [], [1], [1], [], [2, 2, 2]]);
-
-  play(5);
-  assertGame(1, false, [[1], [1], [], [1], [1], [2], [2, 2, 2]]);
-
-  play(2);
   // Player 1 won the game!
   assertGame(1, true, [[1], [1], [1], [1], [1], [2], [2, 2, 2]]);
 });
@@ -97,12 +57,8 @@ test("should win with 4 in a row horizontally", () => {
 test("should not play a piece when the column is full", () => {
   const { play, assertGame } = render();
 
-  play(0);
-  play(0);
-  play(0);
-  play(0);
-  play(0);
-  play(0);
+  [0, 0, 0, 0, 0, 0].forEach(play);
+
   assertGame(1, false, [[1, 2, 1, 2, 1, 2], [], [], [], [], [], []]);
 
   play(0);
