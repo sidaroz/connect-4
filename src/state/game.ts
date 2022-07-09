@@ -1,9 +1,10 @@
+import { boardCols } from "const";
 import { atom } from "recoil";
 import { Board, Player } from "types";
 
 export const boardState = atom<Board>({
   key: "boardState",
-  default: [[], [], [], [], [], [], []],
+  default: Array(boardCols).fill([]),
 });
 
 export const playerState = atom<Player>({

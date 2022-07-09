@@ -5,9 +5,9 @@ import { boardState, gameOverState, playerState } from "state";
 const testWin = (arr: number[]): boolean => /1{4}|2{4}/.test(arr.join(""));
 
 const usePlayPiece = () => {
-  const [gameOver, setGameOver] = useRecoilState(gameOverState);
   const [board, setBoard] = useRecoilState(boardState);
   const [player, setPlayerTurn] = useRecoilState(playerState);
+  const [gameOver, setGameOver] = useRecoilState(gameOverState);
 
   return (col: number) => {
     // Prevent adding a piece when the game is over
