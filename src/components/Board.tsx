@@ -48,7 +48,7 @@ const Board: FC = () => {
             size="40px"
             boxShadow="base"
             visibility="hidden"
-            // Chooses plau
+            // Chooses player color for the circles from recoil state
             bg={player === 1 ? playerOneColor : playerTwoColor}
             _groupHover={{
               visibility: gameOver ? "hidden" : "visible",
