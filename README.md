@@ -33,14 +33,14 @@ We have created a very simple Connect 4 game using some of our favorite [front-e
 
 ## Changelog
 
-[x] Added two unit tests one to test diagonal upwards to the right and other diagonal downwards to the right (Followed TDD principals)
-[x] Added diagonal win feature (tried to use the same methodology of horizontal win to show my adaptability) in usePlayPiece.ts
-[x] Added state atoms for player scores and player names & colours
-[x] Changed const file to have variables with default player names and colours
-[x] Added two components Scores.tsx and Settings.tsx using Chakra-ui
-[x] Scores shows user scores on the app and settings allows you to configure player name's and colours
-[x] Used recoil to state manage properties so no need to rerender the page
-[x] Managed to have board persistance and active player persistance along with scores using AtomEffects from recoil
+- [x] Added two unit tests one to test diagonal upwards to the right and other diagonal downwards to the right (Followed TDD principals)
+- [x] Added diagonal win feature (tried to use the same methodology of horizontal win to show my adaptability) in usePlayPiece.ts
+- [x] Added state atoms for player scores and player names & colours
+- [x] Changed const file to have variables with default player names and colours
+- [x] Added two components Scores.tsx and Settings.tsx using Chakra-ui
+- [x] Scores shows user scores on the app and settings allows you to configure player name's and colours
+- [x] Used recoil to state manage properties so no need to rerender the page
+- [x] Managed to have board persistance and active player persistance along with scores using AtomEffects from recoil
 
 ## Comments
 
