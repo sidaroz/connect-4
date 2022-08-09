@@ -65,3 +65,31 @@ test("should not play a piece when the column is full", () => {
   // No change because column is full
   assertGame(1, false, [[1, 2, 1, 2, 1, 2], [], [], [], [], [], []]);
 });
+
+// Added a test to show 4 in a row diagonally upward toward right
+test("should win with 4 in a row diagonally upward toward right", () => {
+  const { play, assertGame } = render();
+
+  [1, 2, 2, 6, 3, 3, 3, 4, 4, 4, 4].forEach(play);
+
+  // Player 1 won the game
+  assertGame(1, true, [[], [1], [2, 1], [1, 2, 1], [2, 1, 2, 1], [], [2]]);
+
+  play(1);
+  // No change because Player 1 won
+  assertGame(1, true, [[], [1], [2, 1], [1, 2, 1], [2, 1, 2, 1], [], [2]]);
+});
+
+// Added a test to show 4 in a row diagonally downward toward right
+test("should win with 4 in a row diagonally downward toward right", () => {
+  const { play, assertGame } = render();
+
+  [6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 3].forEach(play);
+
+  // Player 1 won the game
+  assertGame(1, true, [[], [], [], [2, 1, 2, 1], [1, 2, 1], [2, 1, 2], [1]]);
+
+  play(1);
+  // No change because Player 1 won
+  assertGame(1, true, [[], [], [], [2, 1, 2, 1], [1, 2, 1], [2, 1, 2], [1]]);
+});

@@ -1,9 +1,15 @@
 import { Circle, Flex } from "@chakra-ui/react";
-import { boardRows, playerColor } from "const";
+import { boardRows } from "const";
 import { usePlayPiece } from "hooks";
 import { FC } from "react";
 import { useRecoilValue } from "recoil";
-import { boardState, gameOverState, playerState } from "state";
+import {
+  boardState,
+  gameOverState,
+  playerOne,
+  playerTwo,
+  playerState,
+} from "state";
 import { Player } from "types";
 
 const padCol = (col: number[]): number[] =>
@@ -14,6 +20,9 @@ const Board: FC = () => {
   const board = useRecoilValue(boardState);
   const player = useRecoilValue(playerState);
   const gameOver = useRecoilValue(gameOverState);
+  const [playerOneName, playerOneColor] = useRecoilValue(playerOne);
+  const [playerTwoName, playerTwoColor] = useRecoilValue(playerTwo);
+  const playerColors = { 1: playerOneColor, 2: playerTwoColor };
 
   return (
     <Flex justify="center">
@@ -31,7 +40,7 @@ const Board: FC = () => {
               size="40px"
               key={`${i}-${j}`}
               boxShadow="inner"
-              bg={playerColor[p as Player] || "gray.300"}
+              bg={playerColors[p as Player] || "gray.300"}
             />
           ))}
           <Circle
@@ -39,7 +48,8 @@ const Board: FC = () => {
             size="40px"
             boxShadow="base"
             visibility="hidden"
-            bg={playerColor[player]}
+            // Chooses plau
+            bg={player === 1 ? playerOneColor : playerTwoColor}
             _groupHover={{
               visibility: gameOver ? "hidden" : "visible",
             }}
